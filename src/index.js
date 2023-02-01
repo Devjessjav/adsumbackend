@@ -1,5 +1,9 @@
-const app = require('./app.js');
+import app from "./app";
 
-app.listen(app.get('port'), () => {
-    console.log("Servidor ARRIBA", app.get("port"));
-})
+const main=()=> {
+    app.listen(app.get("port"));
+    console.log(`Servidor arriba ${app.get("port")}`)
+};
+
+main();
+
