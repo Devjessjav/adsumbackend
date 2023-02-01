@@ -2,11 +2,13 @@ import express from "express";
 import morgan from "morgan";
 import session from "express-session";
 import cors from 'cors'
-const config = require('./config');
+// Routes
+import commentsRoutes from "./routes/comments.routes";
+
 
 const app = express();
 app.use(cors())
-app.set('port', config.app.port)
+app.set('port', 4000)
 
 // Middlewares
 app.use(morgan("dev"));
@@ -19,4 +21,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
-module.exports = app;
+// Routes
+app.use("/api/comments", commentsRoutes);
+
+
+export default app;
